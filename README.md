@@ -9,7 +9,7 @@ The strength of your redaction lies in the complexity of the salt you choose.
 
 ## Usage
 
-sanitize.py &lt;field list, comma delimited>_
+sanitize.py _&lt;field list, comma delimited>_
 
 Such as:
 
