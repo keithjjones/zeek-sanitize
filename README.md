@@ -1,6 +1,9 @@
 # zeek-sanitize
 
-A Python script to sanitize Zeek logs.
+A Python script to sanitize Zeek logs.  This is meant to be simple
+so that it can be easily copied up to sensors through even a
+cut/paste in an SSH session.  The Python libraries this script
+references are built in, so nothing extra needs to be installed.
 
 ## Usage
 
