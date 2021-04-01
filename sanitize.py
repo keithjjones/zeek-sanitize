@@ -15,6 +15,6 @@ wt = csv.writer(sys.stdout, delimiter="\t", quotechar='"', quoting=csv.QUOTE_MIN
 for row in rd:
     for field in fields:
         tmpstr = "{0}{1}".format(salt, row[int(field)])
-        row[int(field)] = hashlib.md5(tmpstr.encode('utf-8')).hexdigest()
-        row[int(field)] = "REDACTED-{0}".format(row[int(field)][-10:])
+        row[int(field)] = hashlib.sha512(tmpstr.encode('utf-8')).hexdigest()
+        row[int(field)] = "REDACTED-{0}".format(row[int(field)][-16:])
     wt.writerow(row)
