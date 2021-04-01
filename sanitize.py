@@ -7,7 +7,7 @@ hash_values = dict()
 
 if len(sys.argv) != 2:
     print("\nUsage:\n\t{0} <field list, comma delimited with no spaces>".format(sys.argv[0]))
-    print("\nExample:\n\tcat conn.log | zeek-cut | python {0} mysalt 2,4\n".format(sys.argv[0]))
+    print("\nExample:\n\tcat conn.log | zeek-cut | python {0} 2,4\n".format(sys.argv[0]))
     exit(-1)
 
 fields = sys.argv[1].split(',')
