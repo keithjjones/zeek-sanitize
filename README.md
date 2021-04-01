@@ -5,6 +5,8 @@ so that it can be easily copied up to sensors through even a
 cut/paste in an SSH session.  The Python libraries this script
 references are built in, so nothing extra needs to be installed.
 
+The strength of your redaction lies in the complexity of the salt you choose.
+
 ## Usage
 
 sanitize.py &lt;salt value> &lt;field list, comma delimited>
