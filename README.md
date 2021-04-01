@@ -11,7 +11,7 @@ sanitize.py _&lt;field list, comma delimited with no spaces>_
 
 Such as:
 
-cat conn.log | zeek-cut | python sanitize.py mysalt 2,4
+cat conn.log | zeek-cut | python sanitize.py 2,4
 
 ```
 $ zcat conn.08\:53\:31-09\:00\:00.log.gz | zeek-cut | python sanitize.py 2,4
