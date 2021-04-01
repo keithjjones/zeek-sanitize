@@ -19,6 +19,8 @@ for row in rd:
         hash_val = hashlib.md5(row[int(field)].encode('utf-8')).hexdigest()
         if hash_val not in hash_values:
             hash_values[hash_val] = i
+            row[int(field)] = "REDACTED-{0}".format(i)
             i += 1
-        row[int(field)] = "REDACTED-{0}".format(hash_values[hash_val])
+        else:
+            row[int(field)] = "REDACTED-{0}".format(hash_values[hash_val])
     wt.writerow(row)
