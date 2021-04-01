@@ -4,6 +4,7 @@ import hashlib
 
 i = 1
 hash_values = dict()
+redaction_phrase = "REDACTED-{0}"
 
 if len(sys.argv) != 2:
     print("\nUsage:\n\t{0} <field list, comma delimited with no spaces>".format(sys.argv[0]))
@@ -19,8 +20,8 @@ for row in rd:
         hash_val = hashlib.md5(row[int(field)].encode('utf-8')).hexdigest()
         if hash_val not in hash_values:
             hash_values[hash_val] = i
-            row[int(field)] = "REDACTED-{0}".format(i)
+            row[int(field)] = redaction_phrase.format(i)
             i += 1
         else:
-            row[int(field)] = "REDACTED-{0}".format(hash_values[hash_val])
+            row[int(field)] = redaction_phrase.format(hash_values[hash_val])
     wt.writerow(row)
