@@ -3,7 +3,7 @@ import csv
 import hashlib
 
 i = 1
-hash_values = dict()
+field_values = dict()
 redaction_phrase = "REDACTED-{0}"
 
 if len(sys.argv) != 2:
@@ -17,11 +17,11 @@ rd = csv.reader(sys.stdin, delimiter="\t", quotechar='"')
 wt = csv.writer(sys.stdout, delimiter="\t", quotechar='"', quoting=csv.QUOTE_MINIMAL)
 for row in rd:
     for field in fields:
-        hash_val = hashlib.md5(row[int(field)].encode('utf-8')).hexdigest()
-        if hash_val not in hash_values:
-            hash_values[hash_val] = i
+        field_val = row[int(field)]
+        if field_val not in field_values:
+            field_values[field_val] = i
             row[int(field)] = redaction_phrase.format(i)
             i += 1
         else:
-            row[int(field)] = redaction_phrase.format(hash_values[hash_val])
+            row[int(field)] = redaction_phrase.format(field_values[field_val])
     wt.writerow(row)
